@@ -21,6 +21,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  overflow: scroll;
 }
 
 .header {
@@ -28,11 +29,8 @@
   font-family: 'Montserrat';
   text-align: center;
   margin-top: 3rem;
-}
-
-.header-main {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .header-sub {
@@ -72,6 +70,12 @@
 
 .link {
   font-size: 1.8rem;
+}
+
+@media only screen and (max-width: 45em) {
+  .link2 {
+    font-size: 1.3rem;
+  }
 }
 
 .link2 {
