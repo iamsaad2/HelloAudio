@@ -21,7 +21,6 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  overflow: scroll;
 }
 
 .header {
@@ -75,6 +74,10 @@
 @media only screen and (max-width: 45em) {
   .link2 {
     font-size: 1.3rem;
+  }
+
+  .background {
+    overflow: scroll;
   }
 }
 

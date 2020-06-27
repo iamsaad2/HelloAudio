@@ -2,36 +2,46 @@ import React from 'react';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-const Buttons = () => {
+const Buttons = (props) => {
+  const url = new URL(window.location);
+
+  let foo = url.searchParams.get('url') + window.location.hash;
+
+  let link = foo.slice(6);
+
   return (
     <div className='buttons'>
       <div className='button-container'>
-        <form action='https://helloaudio.fm/subscribe?url=podcast://click.helloaudio.fm/examplefeed#auth=3ab59d'>
+        <form action={`https://helloaudio.fm/subscribe?url=podcast:${link}`}>
           <button type='submit' className='button'>
             APPLE PODCASTS
           </button>
         </form>
-        <form action='https://helloaudio.fm/subscribe?url=overcast://x-callback-url/add?url=https://click.helloaudio.fm/examplefeed#auth=3ab59d'>
+        <form
+          action={`https://helloaudio.fm/subscribe?url=overcast://x-callback-url/add?url=https:${link}`}
+        >
           <button className='button'>OVERCAST</button>
         </form>
-        <form action='https://helloaudio.fm/subscribe?url=podcastaddict://click.helloaudio.fm/examplefeed#auth=3ab59d'>
+        <form
+          action={`https://helloaudio.fm/subscribe?url=podcastaddict:${link}`}
+        >
           <button className='button'>PODCAST ADDICT</button>
         </form>
-        <form action='https://helloaudio.fm/subscribe?url=pktc://subscribe/click.helloaudio.fm/examplefeed#auth=3ab59d'>
+        <form
+          action={`https://helloaudio.fm/subscribe?url=pktc://subscribe${link.slice(
+            1
+          )}`}
+        >
           <button className='button'>POCKET CASTS</button>
         </form>
-        <CopyToClipboard
-          text={'https://click.helloaudio.fm/examplefeed#auth=3ab59d'}
-        >
+        <CopyToClipboard text={foo}>
           <button className='button'>COPY RSS FEED</button>
         </CopyToClipboard>
       </div>
 
       <div className='link-container'>
         <p className='link'>Your RSS Feed URL:</p>
-        <p className='link link2'>
-          https://click.helloaudio.fm/examplefeed#auth=3ab59d
-        </p>
+        <p className='link link2'>{foo}</p>
       </div>
     </div>
   );
