@@ -8,7 +8,6 @@ const Buttons = (props) => {
   let foo = url.searchParams.get('url') + window.location.hash;
 
   let link = foo.slice(6);
-  console.log(`pktc://subscribe${link.slice(1)}`);
 
   return (
     <div className='buttons'>
